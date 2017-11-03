@@ -516,4 +516,7 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
 - (BOOL)shouldSendHasReadAckForMessage:(EMMessage *)message
                                  read:(BOOL)read;
 
+
+- (void)_sendMessage:(EMMessage *)message;
+
 @end
