@@ -156,8 +156,8 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
     _activity.accessibilityIdentifier = @"sending";
     _activity.translatesAutoresizingMaskIntoConstraints = NO;
     _activity.backgroundColor = [UIColor clearColor];
-    _activity.hidden = YES;
-    [self.contentView addSubview:_activity];
+//    _activity.hidden = YES;
+//    [self.contentView addSubview:_activity];
     
     if ([self respondsToSelector:@selector(isCustomBubbleView:)] && [self isCustomBubbleView:model]) {
         [self setCustomBubbleView:model];
