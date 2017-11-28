@@ -11,7 +11,7 @@
  */
 
 #import "EaseMessageCell.h"
-
+#import <GPUImage/GPUImage.h>
 #import "EaseBubbleView+Text.h"
 #import "EaseBubbleView+Image.h"
 #import "EaseBubbleView+Location.h"
@@ -352,7 +352,22 @@ NSString *const EaseMessageCellIdentifierSendFile = @"EaseMessageCellSendFile";
                         _bubbleView.imageView.image = image;
                     }
                 } else {
-                    _bubbleView.imageView.image = image;
+                    if (model.isSender) {
+                        _bubbleView.imageView.image = image;
+                    }else{
+                        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                            GPUImageGaussianBlurFilter * blurFilter = [[GPUImageGaussianBlurFilter alloc] init];
+                            blurFilter.blurRadiusInPixels = 20;
+                            UIImage *blurImage = [[UIImage alloc]init];
+                            if (image) {
+                                blurImage = [blurFilter imageByFilteringImage:image];
+                            }
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                _bubbleView.imageView.image = blurImage;;
+                            });
+                        });
+
+                    }
                 }
             }
                 break;
