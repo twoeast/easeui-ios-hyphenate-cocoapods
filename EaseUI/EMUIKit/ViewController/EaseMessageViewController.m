@@ -1763,7 +1763,10 @@ typedef enum : NSUInteger {
         }
         else{
             model = [[EaseMessageModel alloc] initWithMessage:message];
-            model.avatarImage = [UIImage easeImageNamed:@"EaseUIResource.bundle/user"];
+            model.avatarImage = [UIImage imageWithContentsOfFile:message.to];
+            if (!model.avatarImage) {
+                model.avatarImage = [UIImage easeImageNamed:@"EaseUIResource.bundle/user"];
+            }
             model.failImageName = @"imageDownloadFail";
         }
         

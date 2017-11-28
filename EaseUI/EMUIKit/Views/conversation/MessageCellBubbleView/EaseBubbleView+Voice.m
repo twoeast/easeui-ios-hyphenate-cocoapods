@@ -84,9 +84,10 @@
     self.isReadView.translatesAutoresizingMaskIntoConstraints = NO;
     self.isReadView.layer.cornerRadius = ISREAD_VIEW_SIZE/2;
     self.isReadView.clipsToBounds = YES;
-    self.isReadView.backgroundColor = [UIColor redColor];
+    self.isReadView.backgroundColor = [UIColor clearColor];
     [self.backgroundImageView addSubview:self.isReadView];
-    
+    self.isReadView.hidden = YES;
+    self.voiceDurationLabel.hidden = YES;
     [self _setupVoiceBubbleConstraints];
 }
 

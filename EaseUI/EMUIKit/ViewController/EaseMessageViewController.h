@@ -519,4 +519,11 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
 
 - (void)_sendMessage:(EMMessage *)message;
 
+- (void)_imageMessageCellSelected:(id<IMessageModel>)model;
+
+- (void)moreViewTakePicAction:(EaseChatBarMoreView *)moreView;
+
+- (void)moreViewPhotoAction:(EaseChatBarMoreView *)moreView;
+
+- (void)didStartRecordingVoiceAction:(UIView *)recordView;
 @end
