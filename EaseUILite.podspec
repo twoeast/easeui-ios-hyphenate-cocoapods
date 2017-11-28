@@ -20,4 +20,6 @@ Pod::Spec.new do |spec|
   spec.dependency 'MWPhotoBrowser', '~> 2.1.1'    
   spec.dependency 'MJRefresh', '~> 3.1.0'
   spec.dependency 'HyphenateLite', '~> 3.3.4'
+  spec.dependency 'GPUImage', '~> 0.1.7'
+
 end
